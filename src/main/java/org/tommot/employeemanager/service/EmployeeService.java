@@ -2,10 +2,12 @@ package org.tommot.employeemanager.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.tommot.employeemanager.exception.UserNotFoundException;
 import org.tommot.employeemanager.model.Employee;
 import org.tommot.employeemanager.repository.EmployeeRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -26,6 +28,10 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
+    public Employee findEmployeeById(Long id){
+        return  employeeRepository.findEmployeeById(id).orElseThrow(()->
+                new UserNotFoundException("Use with id: "+ "could not be found"));
+    }
 
     public Employee updateEmployees(Employee employee) {
         // TODO: Implement validations before updating
