@@ -20,7 +20,7 @@ public class EmployeeController {
     }
 
     //Returns all Employees
-    @GetMapping
+    @GetMapping({"/","/all"})
     public ResponseEntity<List<Employee>> getAllEmployees(){
         List<Employee> employees = employeeService.findAllEmployees();
         return new ResponseEntity<>(employees, HttpStatus.OK);
