@@ -10,7 +10,7 @@ import java.security.PublicKey;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/api/v1/employee")
 public class EmployeeController {
 
     private final EmployeeService employeeService;
