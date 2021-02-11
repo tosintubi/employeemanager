@@ -6,6 +6,7 @@ import org.tommot.employeemanager.exception.UserNotFoundException;
 import org.tommot.employeemanager.model.Employee;
 import org.tommot.employeemanager.repository.EmployeeRepository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -38,8 +39,8 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
+    @Transactional
     public void  deleteEmployee(Long id) {
         employeeRepository.deleteEmployeeById(id);
-
     }
 }
