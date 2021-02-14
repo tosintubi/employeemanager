@@ -25,7 +25,7 @@ public class EmployeeController {
         List<Employee> employees = employeeService.findAllEmployees();
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
-
+    // employee search controller
     @GetMapping("/find/{id}")
     public  ResponseEntity<Employee> getEmployeeById(@PathVariable("id") Long id){
         //id comes from the Pathvariable
@@ -33,6 +33,7 @@ public class EmployeeController {
         return  new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
+    //employee add controller
     @PostMapping("/add")
     public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
         // Request is coming from the RequestBody
@@ -40,6 +41,7 @@ public class EmployeeController {
         return  new ResponseEntity<>(newEmployee, HttpStatus.CREATED);
     }
 
+    //employee update controller
     @PutMapping("/update")
     public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee){
         // Request is coming from the RequestBody
@@ -47,6 +49,7 @@ public class EmployeeController {
         return  new ResponseEntity<>(updatedEmployee, HttpStatus.OK);
     }
 
+    //employee removal controller
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id){
         employeeService.deleteEmployee(id);
