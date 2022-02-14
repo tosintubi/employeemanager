@@ -1,4 +1,3 @@
-# employeemanager
-Employee Manager Application.
+# Employee Manager Application.
 
 ### Built with Springboot
